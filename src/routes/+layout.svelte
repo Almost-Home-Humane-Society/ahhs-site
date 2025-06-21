@@ -47,8 +47,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content={theme === 'dark' ? "#050518" : "#fafafa"} />
   <title>AHHS</title>
   <meta name="description" content="Almost Home Humane Society is a non-profit animal rescue shelter serving the greater Lafayette, Indiana area.">
+
 </svelte:head>
 
 <div class="skip-to-main-link">
