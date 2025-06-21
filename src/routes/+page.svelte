@@ -1,7 +1,12 @@
 <script>
 	import Logo from "$lib/Logo.svelte";
-
 </script>
+
+<svelte:head>
+  <title>Home | AHHS</title>
+  <meta name="description" content="Welcome to Almost Home Humane Society: a non-profit animal rescue shelter servicing the greater Lafayette, Indiana area.">
+</svelte:head>
+
 <div class="flex flex-col gap-6 w-full items-center">
   <div class="grid grid-cols-1 gap-3 p-4 w-full lg:w-10/12">
     <div class="flex flex-row gap-3 items-center justify-center">
@@ -17,7 +22,7 @@
     </p>
     </div>
   </div>
-  <section class="py-4 px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
+  <section class="py-4 px-2 lg:px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
     <h2 class="text-3xl font-medium">Pet Adoptions</h2>
     <p>
       Blurb about what AHHS pet adoption services/commitment is etc. Selling point here for adoptions.
@@ -69,7 +74,7 @@
     </div>       
     </div>
   </section>
-  <section class="py-4 px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
+  <section class="py-4 px-2 lg:px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
     <h2 class="text-3xl font-medium">Events</h2>
     <p>
       Blurb about AHHS in the community, etc. 
@@ -78,10 +83,10 @@
       View All Events
       <span class="iconify lucide--chevron-right size-5"></span>
     </button>    
-    <h3 class="text-lg font-medium">Upcoming</h3>
+    <h3 class="text-xl font-medium">Upcoming</h3>
     <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-3 lg:gap-6">
-      <button class="card w-full flex flex-row p-0 cursor-pointer">
-        <div class="flex flex-row gap-0 min-w-fit w-1/3 lg:w-fit h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
+      <button class="card w-full grid grid-cols-6 p-0 cursor-pointer">
+        <div class="flex flex-row col-span-2 gap-0 h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
           <div class="flex flex-row w-fit h-fit">
           <span class="text-xl font-bold">
             JUN
@@ -91,14 +96,14 @@
           </span>
           </div>
         </div>
-        <div class="flex flex-col flex-auto gap-0 items-start py-2 px-3">
+        <div class="flex flex-col flex-auto col-span-4 gap-0 items-start py-2 px-3">
           <h3 class="text-xl font-medium">Event Title</h3>
           <span class="text-sm text-alt">123 Example Rd, Lafayette IN</span>
           <span class="text-sm text-alt">9:00am - 2:00pm</span>
         </div>
       </button>
-      <button class="card w-full flex flex-row p-0 cursor-pointer">
-        <div class="flex flex-row gap-0 min-w-fit w-1/3 lg:w-fit h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
+      <button class="card w-full grid grid-cols-6 p-0 cursor-pointer">
+        <div class="flex flex-row col-span-2 gap-0 h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
           <div class="flex flex-row w-fit h-fit">
           <span class="text-xl font-bold">
             JUL
@@ -108,14 +113,14 @@
           </span>
           </div>
         </div>
-        <div class="flex flex-col flex-auto gap-0 items-start py-2 px-3">
+        <div class="flex flex-col flex-auto col-span-4 gap-0 items-start py-2 px-3">
           <h3 class="text-xl font-medium">Event Title</h3>
-          <span class="text-sm text-alt">123 Example Rd, Lafayette IN</span>
+          <span class="text-sm text-alt text-balance">123 Example Rd, Lafayette IN</span>
           <span class="text-sm text-alt">9:00am - 2:00pm</span>
         </div>
       </button>
-      <button class="card w-full flex flex-row p-0 cursor-pointer">
-        <div class="flex flex-row gap-0 min-w-fit w-1/3 lg:w-fit h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
+      <button class="card w-full grid grid-cols-6 p-0 cursor-pointer">
+        <div class="flex flex-row col-span-2 gap-0 h-full items-center justify-center bg-ahhs-red-300 py-2 px-3 rounded-l-2xl border-ahhs-red-300 -ml-[1px]">
           <div class="flex flex-row w-fit h-fit">
           <span class="text-xl font-bold">
             AUG
@@ -125,7 +130,7 @@
           </span>
           </div>
         </div>
-        <div class="flex flex-col flex-auto gap-0 items-start py-2 px-3">
+        <div class="flex flex-col col-span-4 flex-auto gap-0 items-start py-2 px-3">
           <h3 class="text-xl font-medium">Event Title</h3>
           <span class="text-sm text-alt">123 Example Rd, Lafayette IN</span>
           <span class="text-sm text-alt">9:00am - 2:00pm</span>
@@ -133,7 +138,7 @@
       </button>            
     </div>
   </section>    
-  <section class="py-4 px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
+  <section class="py-4 px-2 lg:px-8 flex flex-col gap-3 lg:gap-6 w-full lg:w-10/12 border-t border-t-ahhs-red-200">
     <h2 class="text-3xl font-medium">Contact Us</h2>
   </section>  
 </div>

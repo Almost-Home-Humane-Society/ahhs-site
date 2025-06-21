@@ -41,6 +41,16 @@
   }
 </script>
 
+<svelte:head>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <title>AHHS</title>
+  <meta name="description" content="Almost Home Humane Society is a non-profit animal rescue shelter serving the greater Lafayette, Indiana area.">
+</svelte:head>
+
 <div class="skip-to-main-link">
   <a href="#main">Skip to main content</a>
 </div>
@@ -49,8 +59,8 @@
   </div>
   <div class="flex flex-col w-full p-3 xl:p-4 relative xl:sticky xl:top-0 xl:left-0 z-10">
     <div class="flex flex-row items-center w-full gap-3">
-      <button class="btn-icon">
-        <span class="iconify lucide--menu size-6"></span>
+      <button id='nav_menu_toggle' aria-label="toggle navigation menu" class="btn-icon">
+        <span aria-labelledby="nav_menu_toggle" class="iconify lucide--menu size-6"></span>
       </button>
       {#if page.url.pathname !== '/'}
       <Logo class='h-8 lg:h-12' />
