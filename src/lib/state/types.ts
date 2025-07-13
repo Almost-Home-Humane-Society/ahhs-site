@@ -1,0 +1,1 @@
+export type SharedState<T> = { value: T };
