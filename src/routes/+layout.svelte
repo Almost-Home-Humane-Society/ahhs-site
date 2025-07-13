@@ -40,6 +40,14 @@
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }
+
+  let themeColor = $derived.by(() => {
+    if (page.url.pathname === '/') {
+      return theme === 'dark' ? '#050518' : '#faf5e6';
+    } else {
+      return theme === 'dark' ? '#232332' : '#fafafa';
+    }
+  })
 </script>
 
 <svelte:head>
@@ -48,7 +56,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content={theme === 'dark' ? "#050518" : "#faf5e6"} />
+  <meta name="theme-color" content={themeColor} />
   <title>AHHS</title>
   <meta name="description" content="Almost Home Humane Society is a non-profit animal rescue shelter serving the greater Lafayette, Indiana area.">
 
@@ -60,7 +68,7 @@
 <div class={`flex flex-col p-0 relative flex-auto min-h-dvh w-full ${theme === 'dark' ? 'bg-surface-dark-01 text-neutral-50' : 'bg-surface-light-01 text-neutral-900'}`}>
   <div class="bg-container">  
   </div>
-  <div class={`flex flex-col w-full p-3 xl:p-4 relative xl:sticky xl:top-0 xl:left-0 z-10 ${page.url.pathname !== '/' ? 'bg-white dark:bg-surface-dark-02 shadow-md dark:shadow-neutral-800' : ''}`}>
+  <div class={`flex flex-col w-full p-3 xl:p-4 relative xl:sticky xl:top-0 xl:left-0 z-10 ${page.url.pathname !== '/' ? 'bg-surface-light-01 dark:bg-surface-dark-02 shadow-md dark:shadow-neutral-800' : ''}`}>
     <div class="flex flex-row items-center w-full gap-3">
       <button id='nav_menu_toggle' aria-label="toggle navigation menu" class="btn-icon" onclick={() => (drawerState.value = !drawerState.value)}>
         <span aria-labelledby="nav_menu_toggle" class="iconify lucide--menu size-7 lg:size-6"></span>
