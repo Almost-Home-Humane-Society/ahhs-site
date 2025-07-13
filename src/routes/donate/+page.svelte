@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+	import PageTitle from "$lib/components/PageTitle.svelte";
 </script>
 
 <svelte:head>
@@ -9,10 +10,10 @@
 
 <Breadcrumbs routes={[{name: 'Donate', route: '/donate'}]} />
 <div class="flex flex-col basis-full p-4 lg:p-8 gap-6">
-  <div class="flex flex-col gap-0 w-full border-b border-b-ahhs-red-200">
-    <h2 class="text-4xl font-bold">Donate</h2>
-    <p class="text-xl font-medium">Help Us Help Them</p>
-  </div>
+  <PageTitle 
+    title='Donate'
+    tag='Help us help them'
+  />
   <div class="flex flex-col basis-full lg:p-4 gap-6">
     <p>
       Each year more than 3,000 pets and their families seek the services of Almost Home. Your support helps us reach our goal of being the leading resource for pet lovers in our community. Whether it is helping us provide medical care for a critically injured pet so that it can find a forever home or assisting a family with pet food or services to keep a pet in their home, none of it is possible without our supporters. Your donations allow us to do the work we do every day and help us fulfill our dreams for what we are able to do for pets in our community.

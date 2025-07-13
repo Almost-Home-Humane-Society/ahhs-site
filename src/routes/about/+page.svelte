@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+	import PageTitle from "$lib/components/PageTitle.svelte";
   const currentYear = new Date();
   let priorYear = $derived.by<number>(() => {
     const returnValue = new Date();
@@ -36,10 +37,10 @@
 
 <Breadcrumbs routes={[{name: 'About Us', route: '/about'}]} />
 <div class="flex flex-col basis-full p-4 lg:p-8 gap-6">
-  <div class="flex flex-col gap-0 w-full border-b border-b-ahhs-red-200">
-    <h2 class="text-4xl font-bold">About Us</h2>
-    <p class="text-xl font-medium">How we serve our community</p>
-  </div>
+  <PageTitle 
+    title='About Us'
+    tag='How we serve our community'
+  />
   <p>
     Almost Home Humane Society was formed as the Tippecanoe County Humane Association in 1939 and since that time has been dedicated to the care of pets in our community. Today, Almost Home serves more than 3,000 pets each year through its programs.    
   </p>

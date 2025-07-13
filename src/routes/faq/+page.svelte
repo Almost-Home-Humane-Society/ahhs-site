@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AdoptionFees from "$lib/components/AdoptionFees.svelte";
 	import Breadcrumbs from "$lib/components/Breadcrumbs.svelte";
+	import PageTitle from "$lib/components/PageTitle.svelte";
   const currentYear = new Date();
   let priorYear = $derived.by<number>(() => {
     const returnValue = new Date();
@@ -18,9 +19,7 @@
 
 <Breadcrumbs routes={[{name: 'FAQs', route: '/faq'}]} />
 <div class="flex flex-col basis-full p-4 lg:p-8 gap-6">
-  <div class="flex flex-col gap-0 w-full border-b border-b-ahhs-red-200">
-    <h2 class="text-4xl font-bold">Frequently Asked Questions</h2>
-  </div>
+  <PageTitle title='Frequently Asked Questions' />
     <section class="flex flex-col gap-3 basis-full">
       <h3 role="button" class="text-2xl font-medium gap-2 flex flex-row items-center cursor-pointer" onclick={() => (adoptionFaqExpanded = !adoptionFaqExpanded)}>
         Adoption FAQs

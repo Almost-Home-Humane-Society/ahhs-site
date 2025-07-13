@@ -48,7 +48,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content={theme === 'dark' ? "#050518" : "#fafafa"} />
+  <meta name="theme-color" content={theme === 'dark' ? "#050518" : "#f5edd7"} />
   <title>AHHS</title>
   <meta name="description" content="Almost Home Humane Society is a non-profit animal rescue shelter serving the greater Lafayette, Indiana area.">
 
@@ -157,7 +157,7 @@
           </div>    
         </div>
         <div class="flex flex-col lg:flex-row w-full justify-center items-center py-4 gap-6 lg:gap-24">
-          <div class="flex flex-row items-center">
+          <div class="hidden lg:flex flex-row items-center">
             <span class="icon-[lucide--copyright]"></span>
             {new Date().getFullYear()} Almost Home Humane Society
           </div>
@@ -172,6 +172,10 @@
               </a>              
             </div>
           </div>
+          <div class="lg:hidden flex flex-row items-center">
+            <span class="icon-[lucide--copyright]"></span>
+            {new Date().getFullYear()} Almost Home Humane Society
+          </div>          
         </div>
       </footer>      
     </main>
@@ -193,8 +197,19 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24"><path fill="currentColor" d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"/></svg>
           </button>
         </nav>
-        <ul class="list-none">
-
+        <ul class="list-none mt-16">
+          <NavItem route="/" onclick={() => (drawerState.value = !drawerState.value)}>
+            Home
+          </NavItem>
+          <NavItem route="/about" onclick={() => (drawerState.value = !drawerState.value)}>
+            About Us
+          </NavItem>
+          <NavItem route="/donate" onclick={() => (drawerState.value = !drawerState.value)}>
+            Donate
+          </NavItem>
+          <NavItem route="/faq" onclick={() => (drawerState.value = !drawerState.value)}>
+            Frequently Asked Questions
+          </NavItem>
         </ul>
       {/if}
     </div>
