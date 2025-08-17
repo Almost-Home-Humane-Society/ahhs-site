@@ -132,11 +132,11 @@ li::marker {
 }
 
 @utility bg-container {
-	@apply absolute inset-0 top-0 left-0 z-0;
+	@apply fixed inset-0 bottom-0 left-0 z-0 flex h-full w-full;
 	background-image:
-		radial-gradient(circle at 20% 80%, rgba(255, 182, 153, 0.3) 0%, transparent 50%),
-		radial-gradient(circle at 80% 20%, rgba(255, 244, 214, 0.5) 0%, transparent 50%),
-		radial-gradient(circle at 40% 40%, rgba(255, 182, 153, 0.1) 0%, transparent 50%);
+		radial-gradient(circle at 20% 80%, rgba(255, 182, 153, 0.2) 0%, transparent 50%),
+		radial-gradient(circle at 80% 20%, rgba(255, 244, 214, 0.35) 0%, transparent 50%),
+		radial-gradient(circle at 40% 40%, rgba(255, 182, 153, 0.08) 0%, transparent 50%);
 
 	@variant dark {
 		background-image: radial-gradient(circle at center, rgba(70, 130, 180, 0.4), transparent 70%);
@@ -236,6 +236,102 @@ li::marker {
 
 		&:checked ~ .drawer-side {
 			@apply pointer-events-auto visible;
+		}
+	}
+}
+
+@utility navrail-layout {
+	@apply relative m-0 flex min-h-dvh flex-auto basis-full flex-row;
+
+	& .body {
+		@apply z-10 flex flex-shrink flex-grow basis-full;
+	}
+
+	& .content {
+		@apply flex flex-shrink flex-grow basis-full flex-col;
+	}
+
+	& .navrail {
+		@apply sticky top-0 left-0 z-[199] flex max-h-dvh min-h-dvh flex-row items-center gap-0;
+
+		& .navrail-content {
+			@apply relative flex h-full flex-row gap-0 text-white;
+
+			& .icons-container {
+				@apply bg-surface-light-01 dark:bg-surface-dark-02 sticky top-0 left-0 flex max-h-dvh min-h-dvh basis-full flex-col items-center gap-2 px-2 py-4;
+
+				& .sticky-top-container {
+					@apply sticky top-4 left-0 flex w-full flex-col items-center gap-2 pb-8;
+				}
+
+				& .sticky-bottom-container {
+					@apply sticky bottom-4 left-0 flex w-full flex-col items-center gap-2 pt-8;
+				}
+
+				& ul {
+					@apply flex w-fit flex-col items-center gap-1;
+				}
+			}
+
+			& .expanded-container {
+				@apply bg-surface-light-01 dark:bg-surface-dark-02 absolute top-0 right-0 -z-10 max-h-dvh min-h-dvh w-0;
+
+				&.expanded {
+					@apply border-l-ahhs-red-400 dark:border-l-ahhs-red-300 w-[240px] max-w-[240px] min-w-[240px] overflow-y-auto rounded-r-2xl border-l p-2 pt-8 shadow-sm shadow-neutral-800 dark:shadow-black;
+
+					animation: navrail-slide-out 0.27s forwards;
+				}
+
+				&.collapsed {
+					@starting-style {
+						animation: none;
+					}
+
+					animation: navrail-slide-in 0.2s forwards;
+				}
+			}
+
+			& .nav-container {
+				@apply flex flex-shrink flex-grow basis-full flex-col overflow-y-auto;
+			}
+
+			&.pinned {
+				& .icons-container {
+					@apply w-fit min-w-[280px] items-start;
+
+					& ul {
+						@apply flex w-full flex-col items-start gap-1;
+					}
+				}
+
+				& .nav-container {
+					@apply flex h-full w-full flex-col overflow-y-auto;
+				}
+
+				& .expanded-container {
+					@apply hidden;
+				}
+
+				& li.nav-section {
+					@apply w-full;
+
+					& li.nav-item {
+						width: calc(100% - 1rem);
+					}
+				}
+
+				& .nav-item {
+					@apply w-full flex-nowrap whitespace-nowrap;
+
+					& svg {
+						@apply size-5;
+					}
+
+					& span {
+						@apply size-5;
+					}
+				}
+			}
 		}
 	}
 }
@@ -341,7 +437,7 @@ li::marker {
 }
 
 @utility btn-icon {
-	@apply m-0 flex h-fit w-fit cursor-pointer flex-row items-center justify-center rounded-full border border-transparent p-2;
+	@apply border-ahhs-red-400 dark:border-ahhs-red-300 m-0 flex h-fit w-fit cursor-pointer flex-row items-center justify-center rounded-full border p-2;
 
 	&:hover {
 		@apply bg-ahhs-red-200/50 dark:bg-ahhs-red-200/30 border-ahhs-red-200/50 dark:border-ahhs-red-200;
@@ -349,7 +445,7 @@ li::marker {
 }
 
 @utility nav-item {
-	@apply relative flex list-none flex-row items-center justify-start gap-2 rounded-lg px-6 py-2 text-lg font-bold;
+	@apply relative flex list-none flex-row items-center justify-start gap-2 rounded-lg px-4 py-1 text-base font-bold;
 
 	&:hover:not(.disabled) {
 		@apply bg-ahhs-blue-50/30 dark:bg-ahhs-blue-200/10;
@@ -365,7 +461,7 @@ li::marker {
 }
 
 @utility nav-section {
-	@apply flex w-full flex-col gap-0 pb-2;
+	@apply flex w-full flex-col gap-0;
 
 	&.top-border {
 		@apply border-t-ahhs-red-200 border-t-[1px];
@@ -380,7 +476,7 @@ li::marker {
 	}
 
 	& .nav-section-title {
-		@apply text-alt flex flex-row items-center justify-between gap-2 pt-1 pl-4 text-sm font-bold;
+		@apply text-ahhs-blue-500 dark:text-ahhs-blue-50 flex flex-row items-center justify-between gap-2 pt-1 pr-4 pl-4 text-xs font-medium;
 	}
 }
 
@@ -448,4 +544,293 @@ li::marker {
 	td {
 		@apply px-2 py-1;
 	}
+}
+
+@utility faq-icon {
+	display: inline-block;
+	--svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'%3E%3Cpath d='M4.842 13.657V7.691A1.49 1.49 0 0 1 6.334 6.2h1.491m-2.983 4.474h2.237m3.13 2.983V7.691a1.492 1.492 0 1 1 2.983 0v5.966m-2.983-2.983h2.983m5.966 1.491a1.492 1.492 0 1 1-2.983 0V7.691a1.492 1.492 0 1 1 2.983 0zm-1.492 1.492l1.492 1.491'/%3E%3Cpath d='M22.2 2.571H1.8A1.054 1.054 0 0 0 .75 3.625v13.588a1.054 1.054 0 0 0 1.05 1.054h2.443a7.8 7.8 0 0 1-1.386 3.16c3.05.044 4.98-1.136 6.138-3.16H22.2a1.054 1.054 0 0 0 1.054-1.054V3.625A1.054 1.054 0 0 0 22.2 2.571'/%3E%3C/g%3E%3C/svg%3E");
+	background-color: currentColor;
+	-webkit-mask-image: var(--svg);
+	mask-image: var(--svg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: 100% 100%;
+	mask-size: 100% 100%;
+	@apply size-5 md:size-7;
+}
+
+@utility navrail-layout {
+	@apply relative m-0 flex min-h-dvh flex-auto basis-full flex-row;
+
+	& .body {
+		@apply flex flex-shrink flex-grow basis-full flex-col;
+	}
+
+	& .content {
+		@apply flex flex-shrink flex-grow basis-full flex-col;
+	}
+
+	& .navrail {
+		@apply sticky top-0 left-0 z-[199] flex max-h-dvh min-h-dvh flex-row items-center gap-0;
+
+		& .navrail-content {
+			@apply relative flex h-full flex-row gap-0 text-neutral-900 dark:text-white;
+
+			& .icons-container {
+				@apply bg-surface-light-01 dark:bg-surface-dark-02 flex max-h-dvh min-h-dvh basis-full flex-col items-center gap-2 px-2 py-4;
+
+				& .sticky-top-container {
+					@apply sticky top-4 left-0 flex w-full flex-row items-center justify-center gap-2 pb-8;
+				}
+
+				& .sticky-bottom-container {
+					@apply sticky bottom-4 left-0 flex w-full flex-row items-center justify-center gap-2 pt-8;
+				}
+
+				& ul {
+					@apply flex w-fit flex-col items-center gap-2;
+
+					& li {
+						@apply flex w-full flex-row justify-center;
+					}
+				}
+			}
+
+			& .expanded-container {
+				@apply bg-surface-light-01 dark:bg-surface-dark-02 absolute top-0 right-0 -z-10 h-full w-0 border-l-transparent;
+
+				&.expanded {
+					@apply border-l-ahhs-red-400/30 dark:border-l-ahhs-red-300/20 max-h-dvh min-h-dvh w-[240px] max-w-[240px] min-w-[240px] overflow-y-auto rounded-r-2xl border-l p-2 pt-8 shadow-sm shadow-neutral-800 dark:shadow-black;
+
+					animation: navrail-slide-out 0.27s forwards;
+				}
+
+				&.collapsed {
+					@starting-style {
+						animation: none;
+					}
+
+					animation: navrail-slide-in 0.2s forwards;
+				}
+			}
+
+			& .nav-container {
+				@apply flex flex-shrink flex-grow basis-full flex-col overflow-y-auto;
+			}
+
+			&.pinned {
+				& .icons-container {
+					@apply w-fit min-w-[280px] items-start;
+
+					& ul {
+						@apply flex w-full flex-col items-start gap-2;
+					}
+				}
+
+				& .nav-container {
+					@apply flex h-full w-full flex-col overflow-y-auto;
+				}
+
+				& .expanded-container {
+					@apply hidden;
+				}
+
+				& li.nav-section {
+					@apply w-full;
+
+					& li.nav-item {
+						width: calc(100% - 1rem);
+					}
+				}
+
+				& .nav-item {
+					@apply w-full flex-nowrap whitespace-nowrap;
+
+					& svg {
+						@apply size-5;
+					}
+
+					& span {
+						@apply size-5;
+					}
+				}
+			}
+		}
+
+		& .nav-item {
+			@apply border border-transparent text-[0.925rem] text-neutral-900 dark:text-white;
+
+			& a {
+				@apply flex-wrap text-balance whitespace-normal;
+			}
+
+			& .nav-indicator {
+				@apply hidden;
+			}
+
+			&.disabled {
+				@apply cursor-not-allowed bg-transparent text-neutral-500 dark:text-neutral-400;
+			}
+
+			&.active:not(.disabled) {
+				@apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+			}
+
+			&:hover:not(.disabled):not(.active) {
+				@apply bg-ahhs-red-400/5 dark:bg-ahhs-red-300/20 border-ahhs-red-500/30 text-neutral-900 dark:text-white;
+			}
+		}
+	}
+}
+
+@keyframes navrail-slide-out {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(240px);
+	}
+}
+
+@keyframes navrail-slide-in {
+	0% {
+		transform: translateX(240px);
+
+		width: 240px;
+	}
+
+	99% {
+		width: 240px;
+	}
+
+	100% {
+		transform: translateX(0);
+
+		width: 0;
+	}
+}
+
+@utility navrail-icon-btn {
+	@apply focused text-ahhs-blue-700 flex h-fit w-full cursor-pointer flex-col items-center justify-center rounded-lg border border-transparent bg-transparent px-1.5 py-1.5 dark:text-white;
+
+	& > svg {
+		@apply size-7;
+	}
+
+	& > span {
+		@apply size-7;
+	}
+
+	&:hover {
+		@apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+	}
+
+	&.active {
+		@apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+	}
+
+	& label {
+		@apply cursor-pointer text-center text-xs font-medium;
+	}
+}
+
+[role='tooltip'] {
+	@apply bg-ahhs-blue-700 dark:bg-surface-light-01 relative block h-max w-max rounded-md px-4 py-2 text-sm font-medium text-white opacity-100 shadow-none dark:text-neutral-900;
+
+	&[data-placement='top-left'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute right-2.5 -bottom-1 block h-3.5 w-3.5;
+			border: inherit;
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(-45deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='top'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -bottom-1 block h-3.5 w-3.5;
+			border: inherit;
+			left: calc(50% - 7px);
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(-45deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='top-right'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -bottom-1 left-2.5 block h-3.5 w-3.5;
+			border: inherit;
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(-45deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='bottom-left'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -top-1 right-2.5 block h-3.5 w-3.5;
+			border: inherit;
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(135deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='bottom'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -top-1 block h-3.5 w-3.5;
+			border: inherit;
+			left: calc(50% - 7px);
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(135deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='bottom-right'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -top-1 left-2.5 block h-3.5 w-3.5;
+			border: inherit;
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(135deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='left'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -right-1 block h-3.5 w-3.5;
+			border: inherit;
+			top: calc(50% - 7px);
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(-135deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+
+	&[data-placement='right'] {
+		& > .arrow {
+			@apply bg-surface-dark-02 dark:bg-surface-light-01 absolute -left-1 block h-3.5 w-3.5;
+			border: inherit;
+			top: calc(50% - 7px);
+			clip-path: polygon(0% 0% 100% 100% 0% 100%);
+			transform: rotate(45deg);
+			border-radius: 0 0 0 0.25em;
+		}
+	}
+}
+
+[role='tooltip'] {
+	@apply transition-opacity duration-200 ease-in-out;
+}
+
+[role='tooltip'].tooltip-hide {
+	@apply hidden opacity-0;
+}
+
+[role='tooltip'].tooltip-show {
+	@apply block opacity-100;
 }

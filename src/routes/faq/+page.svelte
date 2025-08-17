@@ -32,7 +32,7 @@
       {#if adoptionFaqExpanded}
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             What are the adoption fees?
           </h4>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 px-4 lg:px-8">
@@ -53,7 +53,7 @@
         
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             Do I need an appointment to visit or adopt?
           </h4>
           <p class="px-4 lg:px-8">
@@ -62,7 +62,7 @@
         </div>      
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             Do you keep a list for adopters looking for a specific type of pet?
           </h4>
           <p class="px-4 lg:px-8">
@@ -71,7 +71,7 @@
         </div>  
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             How do you know the breeds of each dog?
           </h4>
           <p class="px-4 lg:px-8">
@@ -80,7 +80,7 @@
         </div>  
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             What happens if more than one family is interested in the same pet?
           </h4>
           <p class="px-4 lg:px-8">
@@ -89,7 +89,7 @@
         </div>  
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             What if I need to return or re-home my adopted pet?
           </h4>
           <p class="px-4 lg:px-8">
@@ -98,7 +98,7 @@
         </div>  
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             How can I adopt the stray pet that I found?
           </h4>
           <p class="px-4 lg:px-8">
@@ -107,7 +107,7 @@
         </div>      
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             What happens if my new pet becomes ill after adoption?          
           </h4>
           <p class="px-4 lg:px-8">
@@ -116,7 +116,7 @@
         </div>   
         <div class="flex flex-col basis-full gap-1 px-4">
           <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-            <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+            <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
             What happens if I need to surrender my pet?
           </h4>
           <p class="px-4 lg:px-8">
@@ -126,18 +126,20 @@
       {/if}
     </section>
     <section class="flex flex-col gap-3 basis-full">
+      <!-- svelte-ignore a11y_no_noninteractive_element_to_interactive_role -->
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <h3 role="button" class="text-2xl font-medium gap-2 flex flex-row items-center cursor-pointer" onclick={() => (generalFaqExpanded = !generalFaqExpanded)}>
         General FAQs
         {#if generalFaqExpanded}
-        <span class="iconify lucide--chevron-up size-7"></span>
+        <span class="iconify lucide--chevron-up size-[32px] lg:size-7"></span>
         {:else}
-        <span class="iconify lucide--chevron-down size-7"></span>
+        <span class="iconify lucide--chevron-down size-[32px] lg:size-7"></span>
         {/if}
       </h3>
       {#if generalFaqExpanded}
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           How long do pets stay at Almost Home Humane Society?
         </h4>
         <p class="px-4 lg:px-8">
@@ -146,7 +148,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           How is AHHS funded?
         </h4>
         <p class="px-4 lg:px-8">
@@ -155,7 +157,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Is Almost Home Humane Society a “No-Kill” organization?
         </h4>
         <p class="px-4 lg:px-8">
@@ -164,7 +166,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           How many pets does AHHS take in each year?
         </h4>
         <p class="px-4 lg:px-8">
@@ -173,7 +175,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Why does Almost Home charge an adoption fee for pets?
         </h4>
         <p class="px-4 lg:px-8">
@@ -182,7 +184,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           How does AHHS determine the age and breed of adoptable pets?
         </h4>
         <p class="px-4 lg:px-8">
@@ -191,7 +193,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Does AHHS accept owner-surrendered pets?
         </h4>
         <p class="px-4 lg:px-8">
@@ -200,7 +202,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           I’ve found an injured/orphaned wild animal. Can I bring it to AHHS?
         </h4>
         <p class="px-4 lg:px-8">
@@ -209,7 +211,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Can I report suspicions of animal cruelty AHHS?
         </h4>
         <p class="px-4 lg:px-8">
@@ -218,7 +220,7 @@
       </div>
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           May I adopt a pet as a gift for someone else?
         </h4>
         <p class="px-4 lg:px-8">
@@ -227,7 +229,7 @@
       </div>       
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Do you sell pet supplies at Almost Home?
         </h4>
         <p class="px-4 lg:px-8">
@@ -236,7 +238,7 @@
       </div>  
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           What is a working cat?
         </h4>
         <p class="px-4 lg:px-8">
@@ -245,7 +247,7 @@
       </div>  
       <div class="flex flex-col basis-full gap-1 px-4">
         <h4 class="flex flex-row items-center text-xl font-medium gap-2">
-          <span class="icon-[mdi--paw] size-5 text-ahhs-red-400 dark:text-ahhs-red-300"></span>
+          <span class="icon-[mdi--paw] size-[32px] text-ahhs-red-400 dark:text-ahhs-red-300"></span>
           Will Almost Home euthanize my terminally ill pet?
         </h4>
         <p class="px-4 lg:px-8">

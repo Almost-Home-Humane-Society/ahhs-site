@@ -1,13 +1,15 @@
 <script lang="ts">
-  import { page } from '$app/state';
-	import '../app.css';
-	import Layout from '$lib/components/layout/Layout.svelte';
+	import { page } from "$app/state";
+	import type { Theme } from "$lib/state/types";
+	import NavDrawerLayout from "./NavDrawerLayout.svelte";
+	import NavRailLayout from "./NavRailLayout.svelte";
 
-  type Theme = 'dark' | 'light';
-
-	let { children } = $props();
+  let { children } = $props();
   let theme = $state<Theme>('dark');
+  let innerWidth = $state<number | undefined>(undefined);
   const themeName: string = 'ahhs_theme';
+  const useNavRail = $derived.by(() => !innerWidth || innerWidth >= 768);
+  // const useNavRail = $derived.by(() => false);
 
   $effect(() => {
     let preference = getPreference();
@@ -36,7 +38,7 @@
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
-  }
+  }  
 
   let themeColor = $derived.by(() => {
     if (page.url.pathname === '/') {
@@ -44,7 +46,7 @@
     } else {
       return theme === 'dark' ? '#232332' : '#fafafa';
     }
-  })
+  })  
 </script>
 
 <svelte:head>
@@ -59,9 +61,28 @@
 
 </svelte:head>
 
+<svelte:window 
+  on:resize={() => {
+    innerWidth = window.innerWidth;
+  }}
+/>
+
 <div class="skip-to-main-link">
   <a href="#main">Skip to main content</a>
 </div>
-<Layout>
-  {@render children()}
-</Layout>
+
+{#if useNavRail}
+  <NavRailLayout
+    {theme}
+    onThemeToggle={toggleTheme}
+  >
+    {@render children()}
+  </NavRailLayout>
+{:else}
+  <NavDrawerLayout
+    {theme}
+    onThemeToggle={toggleTheme}
+  >
+    {@render children()}
+  </NavDrawerLayout>
+{/if}
