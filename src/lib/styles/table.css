@@ -1,0 +1,43 @@
+@utility table {
+  @layer utilities.components.base {
+    border-collapse: separate;
+    border-spacing: 0px;
+    @apply border-ahhs-red-500 dark:border-ahhs-red-400 rounded-xl border-[1.2px];
+    & thead {
+      & th {
+        @apply bg-ahhs-red-500 dark:bg-ahhs-red-400 font-medium text-white;
+      }
+
+      & tr:first-child {
+        & th:first-child {
+          @apply rounded-tl-lg;
+        }
+
+        & th:last-child {
+          @apply rounded-tr-lg;
+        }
+      }
+    }
+
+    & tbody {
+      & tr:last-child {
+        & td:first-child {
+          @apply rounded-bl-lg;
+        }
+
+        & td:last-child {
+          @apply rounded-br-lg;
+        }
+      }
+
+      & tr:nth-last-child(even) {
+        @apply bg-ahhs-red-500/10 dark:bg-ahhs-red-500/30;
+      }
+    }
+
+    & th,
+    td {
+      @apply px-2 py-1;
+    }
+  }
+}

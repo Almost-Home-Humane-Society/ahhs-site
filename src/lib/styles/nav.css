@@ -1,0 +1,306 @@
+@utility skip-to-main-link {
+  @layer utilities.components.base {
+    @apply absolute top-auto -left-[1000px] h-1 w-1 overflow-hidden underline;
+
+    &:focus-within {
+      @apply static flex h-auto w-full items-center justify-center border-none p-2 text-center;
+    }
+
+    & a:focus {
+      @apply focused w-fit px-2 py-1 text-lg font-medium text-neutral-800 underline dark:text-neutral-50;
+    }
+  }
+}
+
+@utility drawer {
+  @layer utilities.components.base {
+    @apply relative flex h-full flex-auto bg-transparent;
+
+    & .drawer-content {
+      @apply flex flex-shrink flex-grow basis-full flex-col;
+    }
+
+    & .drawer-side {
+      @apply pointer-events-none fixed top-0 left-0 col-start-1 row-start-1 grid w-full grid-cols-1 items-start justify-items-start overflow-y-auto overscroll-contain;
+      height: 100vh;
+      height: 100dvh;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        @apply hidden;
+      }
+
+      & > .drawer-overlay {
+        @apply sticky top-0 cursor-pointer place-self-stretch bg-transparent transition-colors duration-200 ease-out;
+      }
+
+      & > * {
+        @apply col-start-1 row-start-1;
+      }
+
+      & > :not(.drawer-overlay) {
+        @apply transition duration-300 ease-out;
+        transform: translateX(-100%);
+        [dir='rtl'] & {
+          transform: translateX(-100%);
+        }
+      }
+    }
+
+    & .drawer-toggle {
+      @apply fixed h-0 w-0 appearance-none opacity-0;
+      &:checked {
+        & ~ .drawer-side {
+          @apply pointer-events-auto visible;
+          & > .drawer-overlay {
+            @apply bg-[hsl(0_0%_0%/0.4)] dark:bg-[hsl(0_0%_0%/0.7)];
+          }
+          & > *:not(.drawer-overlay) {
+            transform: translateX(0%);
+          }
+        }
+      }
+      &:focus-visible ~ .drawer-content label.drawer-button {
+        @apply outline-2 outline-offset-2 outline-solid;
+      }
+    }
+  }
+}
+
+@utility drawer-open {
+  @layer utilities.components.base {
+    & .drawer-toggle {
+      @apply hidden;
+    }
+    & ~ .drawer-side {
+      @apply pointer-events-auto visible sticky block w-auto overscroll-auto;
+      & > *:not(.drawer-overlay) {
+        transform: translateX(0%);
+        [dir='rtl'] & {
+          transform: translateX(0%);
+        }
+      }
+    }
+
+    &:checked ~ .drawer-side {
+      @apply pointer-events-auto visible;
+    }
+  }
+}
+
+@utility nav-item {
+  @apply relative flex list-none flex-row items-center justify-start gap-2 rounded-lg px-4 py-1 text-base font-bold;
+
+  &:hover:not(.disabled) {
+    @apply bg-ahhs-blue-50/30 dark:bg-ahhs-blue-200/10;
+  }
+
+  & a {
+    @apply focused flex w-full flex-row items-center gap-2;
+  }
+}
+
+@utility nav-list {
+  @apply bg-surface-light-01 dark:bg-surface-dark-02 flex h-full min-w-full flex-col gap-1 overflow-y-auto p-4 text-sm sm:min-w-[400px];
+}
+
+@utility nav-section {
+  @layer utilities.components.base {
+    @apply flex w-full flex-col gap-0;
+
+    &.top-border {
+      @apply border-t-ahhs-red-200 border-t-[1px];
+    }
+
+    &.bottom-border {
+      @apply border-b-ahhs-red-200 border-b-[1px];
+    }
+
+    & li {
+      @apply ml-4;
+    }
+
+    & .nav-section-title {
+      @apply text-ahhs-blue-500 dark:text-ahhs-blue-50 flex flex-row items-center justify-between gap-2 pt-1 pr-4 pl-4 text-xs font-medium;
+    }
+  }
+}
+
+@utility navrail-layout {
+  @layer utilities.components.base {
+    @apply relative m-0 flex min-h-dvh flex-auto basis-full flex-row;
+
+    & .body {
+      @apply flex flex-shrink flex-grow basis-full flex-col;
+    }
+
+    & .content {
+      @apply flex flex-shrink flex-grow basis-full flex-col;
+    }
+
+    & .navrail {
+      @apply sticky top-0 left-0 z-[199] flex max-h-dvh min-h-dvh flex-row items-center gap-0;
+
+      & .navrail-content {
+        @apply relative flex h-full flex-row gap-0 text-neutral-900 dark:text-white;
+
+        & .icons-container {
+          @apply bg-surface-light-01 dark:bg-surface-dark-02 border-r border-r-neutral-200 dark:border-r-ahhs-blue-900 flex max-h-dvh min-h-dvh basis-full flex-col items-center gap-2 px-2 py-4;
+
+          & .sticky-top-container {
+            @apply sticky top-4 left-0 flex w-full flex-row items-center justify-center gap-2 pb-8;
+          }
+
+          & .sticky-bottom-container {
+            @apply sticky bottom-4 left-0 flex w-full flex-row items-center justify-center gap-2 pt-8;
+          }
+
+          & ul {
+            @apply flex w-fit flex-col items-center gap-2;
+
+            & li {
+              @apply flex w-full flex-row justify-center;
+            }
+          }
+        }
+
+        & .expanded-container {
+          @apply bg-surface-light-01 dark:bg-surface-dark-02 absolute top-0 right-0 -z-10 h-full w-0 border-l-transparent;
+
+          &.expanded {
+            @apply border-l-ahhs-red-400/30 dark:border-l-ahhs-red-300/20 max-h-dvh min-h-dvh w-[240px] max-w-[240px] min-w-[240px] overflow-y-auto rounded-r-2xl border-l p-2 pt-8 shadow-sm shadow-neutral-300 dark:shadow-ahhs-blue-700;
+
+            animation: navrail-slide-out 0.27s forwards;
+          }
+
+          &.collapsed {
+            @starting-style {
+              animation: none;
+            }
+
+            animation: navrail-slide-in 0.2s forwards;
+          }
+        }
+
+        & .nav-container {
+          @apply flex flex-shrink flex-grow basis-full flex-col overflow-y-auto;
+        }
+
+        &.pinned {
+          & .icons-container {
+            @apply w-fit min-w-[280px] items-start;
+
+            & ul {
+              @apply flex w-full flex-col items-start gap-2;
+            }
+          }
+
+          & .nav-container {
+            @apply flex h-full w-full flex-col overflow-y-auto;
+          }
+
+          & .expanded-container {
+            @apply hidden;
+          }
+
+          & li.nav-section {
+            @apply w-full;
+
+            & li.nav-item {
+              width: calc(100% - 1rem);
+            }
+          }
+
+          & .nav-item {
+            @apply w-full flex-nowrap whitespace-nowrap;
+
+            & svg {
+              @apply size-5;
+            }
+
+            & span {
+              @apply size-5;
+            }
+          }
+        }
+      }
+
+      & .nav-item {
+        @apply border border-transparent text-[0.925rem] text-neutral-900 dark:text-white;
+
+        & a {
+          @apply flex-wrap text-balance whitespace-normal;
+        }
+
+        & .nav-indicator {
+          @apply hidden;
+        }
+
+        &.disabled {
+          @apply cursor-not-allowed bg-transparent text-neutral-500 dark:text-neutral-400;
+        }
+
+        &.active:not(.disabled) {
+          @apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+        }
+
+        &:hover:not(.disabled):not(.active) {
+          @apply bg-ahhs-red-400/5 dark:bg-ahhs-red-300/20 border-ahhs-red-500/30 text-neutral-900 dark:text-white;
+        }
+      }
+    }
+  }
+}
+
+@keyframes navrail-slide-out {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(240px);
+  }
+}
+
+@keyframes navrail-slide-in {
+  0% {
+    transform: translateX(240px);
+
+    width: 240px;
+  }
+
+  99% {
+    width: 240px;
+  }
+
+  100% {
+    transform: translateX(0);
+
+    width: 0;
+  }
+}
+
+@utility navrail-icon-btn {
+  @layer utilities.components.base {
+    @apply focused text-ahhs-blue-700 flex h-fit w-full cursor-pointer flex-col items-center justify-center rounded-lg border border-transparent bg-transparent px-1.5 py-1.5 dark:text-white;
+
+    & > svg {
+      @apply size-7;
+    }
+
+    & > span {
+      @apply size-7;
+    }
+
+    &:hover {
+      @apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+    }
+
+    &.active {
+      @apply bg-ahhs-red-400 dark:bg-ahhs-red-300 border-ahhs-red-400 dark:border-ahhs-red-300 text-white dark:text-white;
+    }
+
+    & label {
+      @apply cursor-pointer text-center text-xs font-medium;
+    }
+  }
+}

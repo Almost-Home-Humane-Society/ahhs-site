@@ -1,7 +1,7 @@
 import type { NavItemProps, NavListItem, NavSectionProps } from "$lib/state/types";
 
 const resources: NavListItem = {
-  icon: '<span class="icon-[material-symbols-light--pet-supplies] size-5 md:size-7"></span>',
+  icon: '<span class="icon-[material-symbols-light--pet-supplies] size-5 md:size-6"></span>',
   showBottomBorder: true,
   showTopBorder: true,
   title: 'Resources',
@@ -26,34 +26,40 @@ export const navList: NavListItem[] = [
     label: 'Home',
     path: '/', 
     exact: true,
-    icon: '<span class="icon-[material-symbols--home-rounded] size-5 md:size-7"></span>',
+    icon: '<span class="icon-[material-symbols--home-rounded] size-5 md:size-6"></span>',
   },
   {
     label: 'Adoptable Cats',
     path: '/cats/available',
-    icon: '<span class="icon-[lucide--cat] size-5 md:size-7"></span>',
+    icon: '<span class="icon-[lucide--cat] size-5 md:size-6"></span>',
   },
   {
     label: 'Adoptable Dogs',
     path: '/dogs/available',
-    icon: '<span class="icon-[lucide--dog] size-5 md:size-7"></span>'
+    icon: '<span class="icon-[lucide--dog] size-5 md:size-6"></span>'
   },
   {
     label: 'Adoptable Pocket Pals',
     path: '/pocket-pals/available',
-    icon: '<span class="icon-[lucide--rabbit] size-5 md:size-7"></span>'
+    icon: '<span class="icon-[lucide--rabbit] size-5 md:size-6"></span>'
   },
   resources,
   {
     label: 'About Us',
     path: '/about',
-    icon: '<span class="icon-[lucide--users-round] size-5 md:size-7"></span>',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" class="size-5 md:size-6" viewBox="0 0 24 24"><path fill="currentColor" d="M1.5 4v1.5c0 4.15 2.21 7.78 5.5 9.8V20h15v-2c0-2.66-5.33-4-8-4h-.25C9 14 5 10 5 5.5V4m9 0a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4"/></svg>',
   },
   {
     label: 'Donate',
     path: '/donate',
-    icon: '<span class="icon-[lucide--heart-handshake] size-5 md:size-7"></span>',
+    icon: '<span class="icon-[lucide--heart-handshake] size-5 md:size-6"></span>',
   },
+  {
+    label: 'Shop',
+    path: 'https://adoptafriend.itemorder.com/shop/home/',
+    external: true,
+    icon: '<span class="icon-[material-symbols--shopping-bag] size-5 md:size-6"></span>'
+  }
 ];
 
 const getNavItems = (item: NavListItem): NavItemProps[] => {
