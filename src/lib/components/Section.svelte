@@ -16,7 +16,7 @@
 			{title}
 		</h3>
 	</div>
-	<div class="flex flex-col w-full gap-4">
+	<div class="flex flex-col w-full gap-4 md:pl-2 xl:pl-4">
 		{@render children()}
 	</div>
 </section>

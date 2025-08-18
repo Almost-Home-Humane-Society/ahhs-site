@@ -28,28 +28,6 @@
 </script>
 
 <div bind:this={ref} class="flex flex-col lg:flex-row basis-full p-4">
-	<div class="sticky top-0 left-0 w-full flex lg:hidden flex-row justify-end">
-		{#if toc.items.size}
-			<Select.Root type="single">
-				<Select.Trigger class="w-fit flex flex-row items-center gap-2">On This Page</Select.Trigger>
-				<Select.Content class="bg-surface-light-01 dark:bg-surface-dark-02 shadow-sm">
-					{#each toc.items.values() as { id, text } (id)}
-						<Select.Item value={id} label={text}>
-							<!-- svelte-ignore a11y_consider_explicit_label -->
-							<!-- svelte-ignore a11y_missing_attribute -->
-							<a
-								href={`#${id}`}
-								class={`text-sm ${toc.activeItem?.id === id ? 'text-ahhs-red-400 dark:text-ahhs-red-300 font-bold text-lg' : 'font-medium'}`}
-								data-toc-link-active={toc.activeItem?.id === id}
-							>
-								{text}
-							</a>
-						</Select.Item>
-					{/each}
-				</Select.Content>
-			</Select.Root>
-		{/if}
-	</div>
 	<div
 		class="flex flex-col basis-full p-4 md:p-8 lg:px-12 2xl:px-24 pb-12 gap-6 relative overflow-y-auto"
 		use:toc.actions.root
@@ -80,4 +58,29 @@
 			</ul>
 		{/if}
 	</aside>
+	<div class="fixed bottom-4 right-4 w-full flex lg:hidden flex-row justify-end">
+		{#if toc.items.size}
+			<Select.Root type="single">
+				<Select.Trigger class="w-fit flex flex-row items-center gap-2">
+					On This Page
+					<span class="icon-[lucide--chevron-up] size-5"></span>
+				</Select.Trigger>
+				<Select.Content class="bg-surface-light-01 dark:bg-surface-dark-02 shadow-sm">
+					{#each toc.items.values() as { id, text } (id)}
+						<Select.Item value={id} label={text}>
+							<!-- svelte-ignore a11y_consider_explicit_label -->
+							<!-- svelte-ignore a11y_missing_attribute -->
+							<a
+								href={`#${id}`}
+								class={`text-sm ${toc.activeItem?.id === id ? 'text-ahhs-red-400 dark:text-ahhs-red-300 font-bold text-lg' : 'font-medium'}`}
+								data-toc-link-active={toc.activeItem?.id === id}
+							>
+								{text}
+							</a>
+						</Select.Item>
+					{/each}
+				</Select.Content>
+			</Select.Root>
+		{/if}
+	</div>
 </div>

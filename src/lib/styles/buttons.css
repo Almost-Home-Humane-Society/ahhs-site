@@ -91,7 +91,7 @@
 }
 
 @utility btn-icon {
-  @apply border-ahhs-red-400 dark:border-ahhs-red-300 m-0 flex h-fit w-fit cursor-pointer flex-row items-center justify-center rounded-full border p-2;
+  @apply  m-0 flex h-fit w-fit cursor-pointer flex-row items-center justify-center rounded-full p-2;
 
   &:hover {
     @apply bg-ahhs-red-200/50 dark:bg-ahhs-red-200/30 border-ahhs-red-200/50 dark:border-ahhs-red-200;

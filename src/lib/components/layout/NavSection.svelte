@@ -17,7 +17,7 @@
 	{#if expanded}
 		<div class={classList}>
 			<button
-				class="nav-section-title cursor-pointer"
+				class="nav-section-title cursor-pointer justify-start"
 				onclick={() => {
 					expanded = !expanded;
 				}}
@@ -37,13 +37,13 @@
 		</div>
 	{:else}
 		<button
-			class="nav-item cursor-pointer py-2 px-3 text-sm rounded-md flex flex-row items-center justify-between"
+			class="nav-item cursor-pointer py-2 px-3 text-sm rounded-md flex flex-row items-center"
 			onclick={() => {
 				expanded = !expanded;
 			}}
 		>
 			{props.title}
-			<span class="iconify lucide--chevron-right size-5"> </span>
+			<span class="iconify lucide--chevron-down size-5"> </span>
 		</button>
 	{/if}
 </li>

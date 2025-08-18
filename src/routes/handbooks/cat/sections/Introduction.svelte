@@ -79,9 +79,9 @@
 			usually become afraid and defensive. In addition to using the techniques described above to
 			begin introducing your new cat to your resident dog, take these steps:
 		</p>
-		<ul class="list-none pl-4">
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Practice Obedience</h5>
+		<ul class="list-none pl-4 flex flex-col gap-2">
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">Practice Obedience</h5>
 				<p>
 					If your dog doesn’t already know the commands “sit,” “down,” “come,” and “stay,” begin
 					working on them right away. Small pieces of food will increase your dog’s motivation to
@@ -90,8 +90,10 @@
 					return for a tidbit.
 				</p>
 			</li>
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Set up controlled meetings</h5>
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">
+					Set up controlled meetings
+				</h5>
 				<p>
 					After your new cat and resident dog have become comfortable eating on opposite sides of
 					the door and have been exposed to each other’s scents as described above, you can attempt
@@ -104,8 +106,8 @@
 					undesirable behavior.
 				</p>
 			</li>
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Let your cat go</h5>
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">Let your cat go</h5>
 				<p>
 					Next, allow your cat some freedom to explore your dog at her own pace, with the dog still
 					on-leash and in a “down-stay.” Meanwhile, keep giving your dog treats and praise for his
@@ -115,8 +117,10 @@
 					previous introduction steps.
 				</p>
 			</li>
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Use positive reinforcement</h5>
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">
+					Use positive reinforcement
+				</h5>
 				<p>
 					Although your dog must be taught that chasing or being rough with your cat in unacceptable
 					behavior, he must also be taught what is appropriate and be rewarded for those behaviors,
@@ -125,8 +129,10 @@
 					presence your dog may redirect aggression toward the cat.
 				</p>
 			</li>
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Directly supervise all interactions</h5>
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">
+					Directly supervise all interactions
+				</h5>
 				<p>
 					You may want to keep your dog at your side and on-leash whenever your cat is free in the
 					house during the introduction process. Be sure that your cat has an escape route and a
@@ -134,8 +140,10 @@
 					separated when you aren’t home.
 				</p>
 			</li>
-			<li class="flex flex-col gap-1">
-				<h5 class="text-base font-bold">Kittens and puppies</h5>
+			<li class="flex flex-col gap-0.5">
+				<h5 class="text-base font-bold text-ahhs-red-400 dark:text-ahhs-red">
+					Kittens and puppies
+				</h5>
 				<p>
 					Because they are so much smaller, kittens are in more danger of being injured or killed by
 					a young energetic dog or by a predatory dog. A kitten will need to be kept separate from

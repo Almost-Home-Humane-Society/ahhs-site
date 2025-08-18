@@ -24,7 +24,7 @@
 >
 	<div class="bg-container"></div>
 	<div
-		class={`flex flex-col w-full p-3 xl:p-4 relative xl:sticky xl:top-0 xl:left-0 z-10 ${page.url.pathname !== '/' ? 'bg-surface-light-01 dark:bg-surface-dark-02' : ''}`}
+		class={`flex flex-col w-full p-3 xl:p-4 sticky top-0 left-0 z-10 bg-surface-light-01 dark:bg-surface-dark-02`}
 	>
 		<div class="flex flex-row items-center w-full gap-3">
 			<button

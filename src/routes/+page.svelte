@@ -16,6 +16,9 @@
 <div class="flex flex-col gap-6 w-full items-center">
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 w-full lg:w-10/12">
 		<div class="flex flex-col gap-3 items-center justify-around py-6">
+			<h1 class="flex lg:hidden text-3xl font-extrabold text-ahhs-blue dark:text-white">
+				Almost Home Humane Society
+			</h1>
 			<span
 				class="text-2xl lg:text-4xl xl:text-5xl font-bold text-ahhs-red-500 dark:text-ahhs-red-200 text-center text-pretty"
 				>Adopt a friend. Save a life.</span
@@ -76,7 +79,7 @@
 			/>
 		</div>
 	</div>
-	<div class="flex flex-col gap-6 w-full md:px-4 items-center">
+	<div class="flex flex-col gap-6 w-full p-2 md:px-4 items-center">
 		<EventsSection />
 		<PetAdoptionSection />
 		<AboutSection />
