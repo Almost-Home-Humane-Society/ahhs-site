@@ -162,7 +162,7 @@
 			</div>
 			<!-- Header -->
 		</div>
-		<div class={`content relative`}>
+		<div class={`content`}>
 			<div class="flex flex-col basis-full">
 				{@render children()}
 			</div>

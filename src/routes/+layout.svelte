@@ -9,7 +9,7 @@
 	let theme = $state<Theme>('dark');
 	let innerWidth = $state<number | undefined>(undefined);
 	const themeName: string = 'ahhs_theme';
-	const useNavRail = $derived.by(() => !innerWidth || innerWidth >= 768);
+	const useNavRail = $derived.by(() => innerWidth && innerWidth >= 768);
 	// const useNavRail = $derived.by(() => false);
 
 	$effect(() => {
@@ -46,6 +46,12 @@
 			return theme === 'dark' ? '#050518' : '#fcf9f0';
 		} else {
 			return theme === 'dark' ? '#232332' : '#fafafa';
+		}
+	});
+
+	$effect(() => {
+		if (window && !innerWidth) {
+			innerWidth = window.innerWidth;
 		}
 	});
 </script>
