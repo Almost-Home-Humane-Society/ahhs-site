@@ -4,6 +4,8 @@
 	import NavDrawerLayout from '$lib/components/layout/NavDrawerLayout.svelte';
 	import NavRailLayout from '$lib/components/layout/NavRailLayout.svelte';
 	import type { Theme } from '$lib/state/types';
+	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
+	import { SvelteQueryDevtools } from '@tanstack/svelte-query-devtools';
 
 	let { children } = $props();
 	let theme = $state<Theme>('dark');
@@ -11,6 +13,15 @@
 	const themeName: string = 'ahhs_theme';
 	const useNavRail = $derived.by(() => innerWidth && innerWidth >= 768);
 	// const useNavRail = $derived.by(() => false);
+
+	const queryClient = new QueryClient({
+		defaultOptions: {
+			queries: {
+				staleTime: 1000 * 60 * 60, // 1 hour
+				refetchOnWindowFocus: false
+			}
+		}
+	});
 
 	$effect(() => {
 		let preference = getPreference();
@@ -80,12 +91,15 @@
 	<a href="#main">Skip to main content</a>
 </div>
 
-{#if useNavRail}
-	<NavRailLayout {theme} onThemeToggle={toggleTheme}>
-		{@render children()}
-	</NavRailLayout>
-{:else}
-	<NavDrawerLayout {theme} onThemeToggle={toggleTheme}>
-		{@render children()}
-	</NavDrawerLayout>
-{/if}
+<QueryClientProvider client={queryClient}>
+	{#if useNavRail}
+		<NavRailLayout {theme} onThemeToggle={toggleTheme}>
+			{@render children()}
+		</NavRailLayout>
+	{:else}
+		<NavDrawerLayout {theme} onThemeToggle={toggleTheme}>
+			{@render children()}
+		</NavDrawerLayout>
+	{/if}
+	<SvelteQueryDevtools initialIsOpen={false} />
+</QueryClientProvider>
