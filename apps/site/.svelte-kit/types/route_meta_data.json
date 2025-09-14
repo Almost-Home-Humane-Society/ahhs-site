@@ -1,0 +1,45 @@
+{
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/about": [
+		"src/routes/+layout.ts"
+	],
+	"/cats/available": [
+		"src/routes/+layout.ts"
+	],
+	"/dogs/available": [
+		"src/routes/+layout.ts"
+	],
+	"/donate": [
+		"src/routes/+layout.ts"
+	],
+	"/faq": [
+		"src/routes/+layout.ts"
+	],
+	"/handbooks/cat": [
+		"src/routes/+layout.ts"
+	],
+	"/handbooks/dog": [
+		"src/routes/+layout.ts"
+	],
+	"/pocket-pals/available": [
+		"src/routes/+layout.ts"
+	],
+	"/resources/local": [
+		"src/routes/+layout.ts"
+	],
+	"/resources/lost-and-found": [
+		"src/routes/+layout.ts"
+	],
+	"/resources/microchipping": [
+		"src/routes/+layout.ts"
+	],
+	"/resources/pet-food-assistance": [
+		"src/routes/+layout.ts"
+	],
+	"/resources/vaccinations": [
+		"src/routes/+layout.ts"
+	]
+}

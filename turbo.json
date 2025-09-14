@@ -1,0 +1,17 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": [".env", ".env.local"],
+  "globalEnv": [],
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "check": {
+
+    }
+  }
+}
