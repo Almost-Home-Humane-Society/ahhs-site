@@ -4,7 +4,9 @@
   "globalEnv": [],
   "tasks": {
     "build": {
-      "outputs": ["dist/**"]
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".svelte-kit/**", ".vercel/**"]
     },
     "dev": {
       "persistent": true,

@@ -1,1 +1,0 @@
-import"./Bzak7iHL.js";import{c as e,r as i}from"./CwJCq5ve.js";import{f as s,a as l}from"./Bbz8S42w.js";import{s as t}from"./DOkyNicJ.js";var m=s('<div class="flex flex-col basis-full p-4 md:p-8 lg:px-12 2xl:px-24 pb-12 gap-6 relative"><!></div>');function n(a,p){var r=m(),o=e(r);t(o,()=>p.children),i(r),l(a,r)}export{n as P};
