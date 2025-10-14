@@ -6,10 +6,17 @@
 		Blurb about what AHHS pet adoption services/commitment is etc. Selling point here for adoptions.
 	</p>
 
-	<button class="btn-primary">
-		Learn More
-		<span class="iconify lucide--chevron-right size-5"></span>
-	</button>
+	<div class="flex flex-col lg:flex-row gap-6 items-center">
+		<a class="btn-primary" href="/handbooks/cat">
+			Cat Handbook
+			<span class="iconify lucide--chevron-right size-5"></span>
+		</a>
+		<a class="btn-primary" href="/handbooks/dog">
+			Dog Handbook
+			<span class="iconify lucide--chevron-right size-5"></span>
+		</a>
+	</div>
+
 	<div class="grid grid-cols-1 lg:grid-cols-3 gap-3 md:px-12 lg:px-4 lg:gap-6">
 		<div class="block">
 			<div class="card flex flex-row flex-auto relative">

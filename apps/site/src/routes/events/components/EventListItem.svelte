@@ -2,6 +2,7 @@
 	import { urlFor } from '$lib/sanity/client';
 	import type { Event } from '$lib/sanity/sanity.types';
 	import { datesMatch, formattedTimeString } from '$lib/utils/dateUtils';
+	import { getDateString, getTimeString } from '$lib/utils/eventUtils';
 	import { PortableText } from '@portabletext/svelte';
 
 	type Props = {
@@ -9,28 +10,9 @@
 	};
 
 	let { event }: Props = $props();
-	const dateString = $derived.by<string | undefined>(() => {
-		if (!event.start || !event.end) return undefined;
-		const sameDate = datesMatch(new Date(event.start), new Date(event.end));
+	const dateString = $derived.by<string | undefined>(() => getDateString(event));
 
-		let returnValue: string = new Date(event.start).toLocaleDateString();
-
-		if (!sameDate) returnValue += ` - ${new Date(event.end).toLocaleDateString()}`;
-
-		return returnValue;
-	});
-
-	const timeString = $derived.by<string | undefined>(() => {
-		if (!event.start || !event.end) return undefined;
-		if (event.allDay) return undefined;
-
-		const startTime = formattedTimeString(new Date(event.start));
-		const endTime = formattedTimeString(new Date(event.end));
-
-		if (startTime === endTime) return startTime;
-
-		return `${startTime} - ${endTime}`;
-	});
+	const timeString = $derived.by<string | undefined>(() => getTimeString(event));
 </script>
 
 <div class="flex flex-col lg:w-2/3 xl:w-1/2 lg:max-w-2/3 xl:max-w-1/2">

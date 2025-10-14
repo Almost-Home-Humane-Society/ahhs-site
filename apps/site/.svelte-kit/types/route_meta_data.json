@@ -7,6 +7,7 @@
 	"/dogs/available": [],
 	"/donate": [],
 	"/events": [],
+	"/events/[slug]": [],
 	"/faq": [],
 	"/handbooks/cat": [],
 	"/handbooks/dog": [],

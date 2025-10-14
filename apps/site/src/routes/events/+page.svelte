@@ -1,4 +1,5 @@
 <script lang="ts">
+	import EventPreview from '$lib/components/EventPreview.svelte';
 	import PageTitle from '$lib/components/PageTitle.svelte';
 	import PageWrapper from '$lib/components/PageWrapper.svelte';
 	import EventListItem from './components/EventListItem.svelte';
@@ -21,11 +22,16 @@
 		{#if query.error}
 			<p class="text-center text-red-500">Error loading events</p>
 		{:else}
-			<div class="flex flex-col w-full gap-6 items-center">
+			<div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 lg:px-12 xl:px-24">
+				{#each query.current as event}
+					<EventPreview {event} />
+				{/each}
+			</div>
+			<!-- <div class="flex flex-col w-full gap-6 items-center">
 				{#each query.current as event}
 					<EventListItem {event} />
 				{/each}
-			</div>
+			</div> -->
 		{/if}
 	</PageWrapper>
 </div>
