@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/resources/local/+page.svelte";
+export { default as component } from "../../../../src/routes/pocket-pals/available/+page.svelte";

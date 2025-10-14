@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/resources/vaccinations/+page.svelte";
+export { default as component } from "../../../../src/routes/resources/pet-food-assistance/+page.svelte";

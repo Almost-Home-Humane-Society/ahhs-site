@@ -1,6 +1,5 @@
 <script>
 	import AboutSection from '$lib/components/AboutSection.svelte';
-	import EventPreview from '$lib/components/EventPreview.svelte';
 	import EventsSection from '$lib/components/EventsSection.svelte';
 	import PetAdoptionSection from '$lib/components/PetAdoptionSection.svelte';
 </script>
@@ -16,7 +15,9 @@
 <div class="flex flex-col gap-6 w-full items-center">
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 w-full lg:w-10/12">
 		<div class="flex flex-col gap-3 items-center justify-around py-6">
-			<h1 class="flex lg:hidden text-3xl font-extrabold text-ahhs-blue text-center text-balance dark:text-white">
+			<h1
+				class="flex lg:hidden text-3xl font-extrabold text-ahhs-blue text-center text-balance dark:text-white"
+			>
 				Almost Home Humane Society
 			</h1>
 			<span

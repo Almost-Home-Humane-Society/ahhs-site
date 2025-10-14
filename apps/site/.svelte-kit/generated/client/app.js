@@ -19,7 +19,8 @@ export const nodes = [
 	() => import('./nodes/15'),
 	() => import('./nodes/16'),
 	() => import('./nodes/17'),
-	() => import('./nodes/18')
+	() => import('./nodes/18'),
+	() => import('./nodes/19')
 ];
 
 export const server_loads = [];
@@ -33,15 +34,16 @@ export const dictionary = {
 		"/dogs/available": [7],
 		"/donate": [8],
 		"/events": [9],
-		"/faq": [10],
-		"/handbooks/cat": [11],
-		"/handbooks/dog": [12],
-		"/pocket-pals/available": [13],
-		"/resources/local": [14],
-		"/resources/lost-and-found": [15],
-		"/resources/microchipping": [16],
-		"/resources/pet-food-assistance": [17],
-		"/resources/vaccinations": [18]
+		"/events/[slug]": [10],
+		"/faq": [11],
+		"/handbooks/cat": [12],
+		"/handbooks/dog": [13],
+		"/pocket-pals/available": [14],
+		"/resources/local": [15],
+		"/resources/lost-and-found": [16],
+		"/resources/microchipping": [17],
+		"/resources/pet-food-assistance": [18],
+		"/resources/vaccinations": [19]
 	};
 
 export const hooks = {
