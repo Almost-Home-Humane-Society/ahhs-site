@@ -2,7 +2,7 @@
 	"/": [],
 	"/about": [],
 	"/blog": [],
-	"/blog/[id]": [],
+	"/blog/[slug]": [],
 	"/cats/available": [],
 	"/dogs/available": [],
 	"/donate": [],

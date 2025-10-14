@@ -14,7 +14,6 @@
 	const query = createQuery<Event | undefined>(() => ({
 		queryKey: ['event', slug],
 		queryFn: async () => {
-			console.log(slug);
 			const event = await client.fetch('*[_type == "event" && slug.current == $slug][0]', { slug });
 			if (!event) return undefined;
 			return event as Event;
@@ -32,13 +31,13 @@
 </svelte:head>
 
 <div class="flex flex-col basis-full gap-6">
-	<PageTitle title="Event Details" tag="Improving our communities' pets one event at a time" />
 	{#if query.isLoading}
 		<div class="flex flex-col basis-full items-center justify-center gap-2 text-center">
 			<Spinner class="size-16 text-ahhs-red" />
 			<span class="text-lg font-medium text-alt">Loading Event...</span>
 		</div>
 	{:else if event}
+		<PageTitle title={event.title ?? 'Event Details'} tag={dateString} />
 		<div class="flex flex-col w-full items-center">
 			<div class="flex flex-col lg:w-2/3 xl:w-1/2 lg:max-w-2/3 xl:max-w-1/2">
 				<section class="card w-full gap-6">
