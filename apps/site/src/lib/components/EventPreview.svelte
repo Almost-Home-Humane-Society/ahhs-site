@@ -35,7 +35,6 @@
 	});
 
 	const slug = $derived.by(() => {
-		if (!event.start) return event.slug?.current ?? '';
 		return `${event.slug?.current ?? ''}`;
 	});
 

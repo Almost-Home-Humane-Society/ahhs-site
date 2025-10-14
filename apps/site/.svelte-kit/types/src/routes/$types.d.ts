@@ -12,8 +12,8 @@ type EnsureDefined<T> = T extends null | undefined ? {} : T;
 type OptionalUnion<U extends Record<string, any>, A extends keyof U = U extends U ? keyof U : never> = U extends unknown ? { [P in Exclude<A, keyof U>]?: never } & U : never;
 export type Snapshot<T = any> = Kit.Snapshot<T>;
 type PageParentData = EnsureDefined<LayoutData>;
-type LayoutRouteId = RouteId | "/" | "/about" | "/blog" | "/blog/[id]" | "/cats/available" | "/dogs/available" | "/donate" | "/events" | "/events/[slug]" | "/faq" | "/handbooks/cat" | "/handbooks/dog" | "/pocket-pals/available" | "/resources/local" | "/resources/lost-and-found" | "/resources/microchipping" | "/resources/pet-food-assistance" | "/resources/vaccinations" | null
-type LayoutParams = RouteParams & { id?: string; slug?: string }
+type LayoutRouteId = RouteId | "/" | "/about" | "/blog" | "/blog/[slug]" | "/cats/available" | "/dogs/available" | "/donate" | "/events" | "/events/[slug]" | "/faq" | "/handbooks/cat" | "/handbooks/dog" | "/pocket-pals/available" | "/resources/local" | "/resources/lost-and-found" | "/resources/microchipping" | "/resources/pet-food-assistance" | "/resources/vaccinations" | null
+type LayoutParams = RouteParams & { slug?: string }
 type LayoutParentData = EnsureDefined<{}>;
 
 export type PageServerData = null;
