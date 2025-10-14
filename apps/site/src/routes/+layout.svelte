@@ -29,6 +29,7 @@
 	});
 
 	const getPreference = () => {
+		if (!window) return 'light';
 		let preference: string | null = window.localStorage.getItem(themeName);
 
 		if (!preference) {
@@ -41,6 +42,7 @@
 
 	const setTheme = (value: Theme) => {
 		theme = value;
+		if (!window || !document) return;
 		const html = document.querySelector('html');
 		if (html instanceof HTMLElement) html.setAttribute('data-theme', value);
 		window.localStorage.setItem(themeName, value);

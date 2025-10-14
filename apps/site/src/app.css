@@ -6,6 +6,7 @@
 @import './lib/styles/tooltip.css';
 @import './lib/styles/nav.css';
 @import './lib/styles/table.css';
+@plugin "@tailwindcss/typography";
 @plugin '@iconify/tailwind4' {
   prefixes: lucide, mdi, material-symbols, material-symbols-light, logos;
 }

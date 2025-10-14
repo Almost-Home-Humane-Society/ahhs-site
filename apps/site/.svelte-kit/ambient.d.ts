@@ -26,8 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const VITE_API_KEY: string;
-	export const VITE_API_SECRET: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
@@ -70,6 +68,7 @@ declare module '$env/static/private' {
 	export const SECURITYSESSIONID: string;
 	export const COLORTERM: string;
 	export const npm_node_execpath: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -82,7 +81,7 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-	
+	export const PUBLIC_SANITY_PROJECT_ID: string;
 }
 
 /**
@@ -99,8 +98,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		VITE_API_KEY: string;
-		VITE_API_SECRET: string;
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
@@ -143,6 +140,7 @@ declare module '$env/dynamic/private' {
 		SECURITYSESSIONID: string;
 		COLORTERM: string;
 		npm_node_execpath: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
@@ -160,6 +158,7 @@ declare module '$env/dynamic/private' {
  */
 declare module '$env/dynamic/public' {
 	export const env: {
+		PUBLIC_SANITY_PROJECT_ID: string;
 		[key: `PUBLIC_${string}`]: string | undefined;
 	}
 }
