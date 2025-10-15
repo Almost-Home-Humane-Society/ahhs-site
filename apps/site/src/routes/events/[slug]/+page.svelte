@@ -38,7 +38,7 @@
 		</div>
 	{:else if event}
 		<PageTitle title={event.title ?? 'Event Details'} tag={dateString} />
-		<div class="flex flex-col w-full items-center">
+		<div class="flex flex-col w-full items-center p-2">
 			<div class="flex flex-col lg:w-2/3 xl:w-1/2 lg:max-w-2/3 xl:max-w-1/2">
 				<section class="card w-full gap-6">
 					{#if event.mainImage}
