@@ -78,7 +78,7 @@
 					class="lg:w-1/3 max-h-[320px] object-cover rounded-2xl flex flex-row basis-full lg:float-left mx-4 my-2"
 				/>
 			{/if}
-			<div class="prose flex flex-col lg:inline w-full">
+			<div class="prose text-alt flex flex-col lg:inline w-full">
 				<PortableText value={post.body} />
 			</div>
 			<!-- <div
